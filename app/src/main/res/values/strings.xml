@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="pnombre">nombre</string>
+    <string name="prate">rate</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acerca">Acerca de</string>
+    <string name="name">Nombre</string>
+    <string name="mail">E-mail</string>
+    <string name="msg">Mensaje</string>
+    <string name="desarrollador">©2016 Aldo Mora</string>
+    <string name="version">2.0</string>
+    <string name="button">Enviar Comentario</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
