@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.aldomora.petagram.Pojo.Mascota;
 import com.aldomora.petagram.R;
+import com.aldomora.petagram.db.ConstructorMascotas;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     public MascotaAdaptador(ArrayList<Mascota> mascotas,Activity activity){
         this.mascotas = mascotas;
         this.activity = activity;
+
     }
     @Override
     //Inflar layout pasando al viewholder para obtener views
@@ -35,7 +37,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
     //Asociar cada elemento de la lista con cada view
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) {
         final Mascota mascota = mascotas.get(position);
         mascotaViewHolder.imgfoto.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
@@ -45,9 +47,13 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity, "Diste like a " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.giveLikeMascota(mascota);
+                mascotaViewHolder.tvRateCV.setText(String.valueOf(constructorMascotas.getLikesMascota(mascota)));
             }
         });
     }
+
 
     @Override
     public int getItemCount() {//Cantidad de elementos lista
