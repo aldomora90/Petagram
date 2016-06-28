@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.aldomora.petagram.Pojo.Foto;
 import com.aldomora.petagram.Pojo.Mascota;
 import com.aldomora.petagram.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,8 +39,11 @@ public class FotoAdaptador extends RecyclerView.Adapter<FotoAdaptador.FotoViewHo
     @Override
     public void onBindViewHolder(FotoViewHolder fotoViewHolder, int position) {
         final Foto foto = fotos.get(position);
-        fotoViewHolder.imgfotoP.setImageResource(foto.getImage());
-        fotoViewHolder.tvRateP.setText(Integer.toString(foto.getRate()));
+        Picasso.with(activity)
+                .load(foto.getUrlFoto())
+                .placeholder(R.drawable.dog_head)
+                .into(fotoViewHolder.imgfotoP);
+        fotoViewHolder.tvRateP.setText(String.valueOf(foto.getLikes()));
     }
 
     @Override

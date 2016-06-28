@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,18 +8,20 @@
 
     <!-- TODO: Update blank fragment layout -->
     <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profilePic"
         android:layout_marginTop="@dimen/spacing"
         android:layout_width="@dimen/pictureSize"
         android:layout_height="@dimen/pictureSize"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/shiba"/>
     <TextView
+        android:id="@+id/tvUser"
         android:layout_marginTop="@dimen/interSpace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
-        android:text="Kenta"
+        android:text="User"
         />
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"

@@ -8,9 +8,15 @@
         >
     </item>
     <item
+        android:id="@+id/mConfig"
+        android:title="@string/menu_config"
+        android:orderInCategory="101"
+        >
+    </item>
+    <item
         android:id="@+id/mAbout"
         android:title="@string/menu_acerca"
-        android:orderInCategory="101"
+        android:orderInCategory="102"
         >
     </item>
 </menu>

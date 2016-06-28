@@ -1,6 +1,7 @@
 package com.aldomora.petagram;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,8 +26,6 @@ import com.aldomora.petagram.Fragments.petProfile;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Menu menu;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -64,9 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this,Contacto.class);
                 startActivity(intent);
                 break;
-            case R.id.mAbout:
-                Intent intent1 = new Intent(this,AcercaDe.class);
+            case R.id.mConfig:
+                Intent intent1 = new Intent(this,ConfigCuenta.class);
                 startActivity(intent1);
+                break;
+            case R.id.mAbout:
+                Intent intent2 = new Intent(this,AcercaDe.class);
+                startActivity(intent2);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -3,6 +3,7 @@
     <string name="pnombre">nombre</string>
     <string name="prate">rate</string>
     <string name="menu_contacto">Contacto</string>
+    <string name="menu_config">Configurar cuenta</string>
     <string name="menu_acerca">Acerca de</string>
     <string name="name">Nombre</string>
     <string name="mail">E-mail</string>
