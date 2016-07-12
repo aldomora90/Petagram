@@ -10,4 +10,7 @@ public final class ConstantesRestAPI {
     public final static String URL_GET_RECENT = "users/{id}/media/recent/?";
 
     public final static String URL_GET_SEARCH = "users/search?";
+
+    public static final String ROOT_URL_DB = "https://evening-fortress-14083.herokuapp.com/";
+    public static final String KEY_POST_ID_TOKEN = "registrar-usuario/";
 }

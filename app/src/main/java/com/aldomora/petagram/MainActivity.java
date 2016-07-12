@@ -22,8 +22,18 @@ import android.widget.Toast;
 import com.aldomora.petagram.Adapters.PageAdapter;
 import com.aldomora.petagram.Fragments.petFeed;
 import com.aldomora.petagram.Fragments.petProfile;
+import com.aldomora.petagram.restAPI.IEndPointsAPI;
+import com.aldomora.petagram.restAPI.adapter.RestAPIadapter;
+import com.aldomora.petagram.restAPI.model.UsuarioResponse;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
@@ -32,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!FirebaseApp.getApps(this).isEmpty()) {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        }
         setContentView(R.layout.activity_main);
 
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
@@ -66,10 +79,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mConfig:
                 Intent intent1 = new Intent(this,ConfigCuenta.class);
                 startActivity(intent1);
+                finish();
+                break;
+            case R.id.mNotif:
+                String token = FirebaseInstanceId.getInstance().getToken();
+                sendTokenReg(token,userID.username);
                 break;
             case R.id.mAbout:
-                Intent intent2 = new Intent(this,AcercaDe.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(this,AcercaDe.class);
+                startActivity(intent3);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -89,4 +107,25 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_profile);
     }
 
+    public void sendTokenReg(String token, String user){
+        Log.d("TOKEN",token);
+        RestAPIadapter restAPIadapter = new RestAPIadapter();
+        IEndPointsAPI endpoints = restAPIadapter.establishConnectionRestAPI();
+        Call<UsuarioResponse> usuarioResponseCall = endpoints.registrarTokenID(token, user);
+
+        usuarioResponseCall.enqueue(new Callback<UsuarioResponse>() {
+            @Override
+            public void onResponse(Call<UsuarioResponse> call, Response<UsuarioResponse> response) {
+                UsuarioResponse usuarioResponse = response.body();
+                Log.d("ID_FIREBASE", usuarioResponse.getId());
+                Log.d("DEVICES_FIREBASE",usuarioResponse.getIdDevice());
+                Log.d("USER_FIREBASE",usuarioResponse.getIdUser());
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioResponse> call, Throwable t) {
+                Log.e("RETROFIT","Connection Failed");
+            }
+        });
+    }
 }

@@ -7,4 +7,5 @@ import android.app.Application;
  */
 public class userID extends Application{
     public static String id = "self";
+    public static String username = "devaldomora";
 }

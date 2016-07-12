@@ -78,6 +78,7 @@ public class ConfigCuenta extends AppCompatActivity {
         for (int i = 0; i < usersfound.size(); i++) {
             if(usersfound.get(i).getName().equals(newUser)){
                 userID.id = usersfound.get(i).getId();
+                userID.username = usersfound.get(i).getName();
                 flag = true;
             }
         }

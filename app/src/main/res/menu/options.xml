@@ -14,6 +14,12 @@
         >
     </item>
     <item
+        android:id="@+id/mNotif"
+        android:title="@string/menu_notif"
+        android:orderInCategory="101"
+        >
+    </item>
+    <item
         android:id="@+id/mAbout"
         android:title="@string/menu_acerca"
         android:orderInCategory="102"

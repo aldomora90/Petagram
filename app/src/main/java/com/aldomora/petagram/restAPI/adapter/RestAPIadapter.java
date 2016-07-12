@@ -25,6 +25,14 @@ public class RestAPIadapter {
         return retrofit.create(IEndPointsAPI.class);
     }
 
+    public IEndPointsAPI establishConnectionRestAPI(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConstantesRestAPI.ROOT_URL_DB)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        return retrofit.create(IEndPointsAPI.class);
+    }
+
     public Gson buildGsonDeserMediaRecent(){
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(FotoResponse.class,new FotoDeser());
