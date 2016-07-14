@@ -5,6 +5,7 @@ package com.aldomora.petagram.Pojo;
  */
 public class Foto {
     private String id;
+    private String mediaId;
     private String nombreComp;
     private String urlFoto;
     private String urlProf;
@@ -60,4 +61,13 @@ public class Foto {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
+    public String getMediaId() {
+        return mediaId;
+    }
+
+    public void setMediaId(String mediaId) {
+        this.mediaId = mediaId;
+    }
 }
+

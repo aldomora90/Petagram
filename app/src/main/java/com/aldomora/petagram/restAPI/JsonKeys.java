@@ -13,6 +13,7 @@ public final class JsonKeys {
     public static final String MEDIA_IMAGES         = "images";
     public static final String MEDIA_STANDARD_RES   = "standard_resolution";
     public static final String MEDIA_URL            = "url";
+    public static final String MEDIA_ID             = "id";
     public static final String MEDIA_LIKES          = "likes";
     public static final String MEDIA_LIKES_COUNT    = "count";
 }

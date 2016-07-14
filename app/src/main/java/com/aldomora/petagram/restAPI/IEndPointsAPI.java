@@ -1,5 +1,6 @@
 package com.aldomora.petagram.restAPI;
 
+import com.aldomora.petagram.restAPI.model.DBResponse;
 import com.aldomora.petagram.restAPI.model.FotoResponse;
 import com.aldomora.petagram.restAPI.model.SearchResponse;
 import com.aldomora.petagram.restAPI.model.UsuarioResponse;
@@ -20,10 +21,20 @@ public interface IEndPointsAPI {
     @GET(ConstantesRestAPI.URL_GET_RECENT)
     Call<FotoResponse> getRecentMedia(@Path("id") String userId, @Query("access_token") String token);
 
+    @POST(ConstantesRestAPI.URL_GIVE_LIKE)
+    Call<FotoResponse> giveLikeInstagram(@Path("idMedia") String mediaId, @Query("access_token") String token);
+
     @GET(ConstantesRestAPI.URL_GET_SEARCH)
     Call<SearchResponse> getSearch(@Query("q") String search, @Query("access_token") String token);
 
     @FormUrlEncoded
     @POST(ConstantesRestAPI.KEY_POST_ID_TOKEN)
     Call<UsuarioResponse> registrarTokenID(@Field("idDevice") String token,@Field("idUser") String user);
+
+    @FormUrlEncoded
+    @POST(ConstantesRestAPI.KEY_POST_LIKE)
+    Call<DBResponse> registrarLike(@Field("idMedia") String idMedia, @Field("id") String id, @Field("idUser") String idUser);
+
+    @GET(ConstantesRestAPI.KEY_GET_LIKE_NOTIF)
+    Call<DBResponse> likeNotif(@Path("id") String id, @Path("user") String user);
 }

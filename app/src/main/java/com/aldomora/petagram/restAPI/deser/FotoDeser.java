@@ -48,8 +48,11 @@ public class FotoDeser implements JsonDeserializer<FotoResponse>{
             JsonObject likesJson = fotoResponseDataObject.getAsJsonObject(JsonKeys.MEDIA_LIKES);
             int likes = likesJson.get(JsonKeys.MEDIA_LIKES_COUNT).getAsInt();
 
+            String mediaId = fotoResponseDataObject.get(JsonKeys.MEDIA_ID).getAsString();
+
             Foto fotoActual = new Foto();
             fotoActual.setId(id);
+            fotoActual.setMediaId(mediaId);
             fotoActual.setNombreComp(nombComp);
             fotoActual.setUrlProf(urlProf);
             fotoActual.setUrlFoto(urlFoto);
