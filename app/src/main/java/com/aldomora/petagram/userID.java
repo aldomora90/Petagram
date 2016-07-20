@@ -8,4 +8,6 @@ import android.app.Application;
 public class userID extends Application{
     public static String id = "self";
     public static String username = "devaldomora";
+    public static String idFriend = "self";
+    public static String statusFriend = "none";
 }

@@ -3,6 +3,7 @@ package com.aldomora.petagram.restAPI;
 import com.aldomora.petagram.restAPI.model.DBResponse;
 import com.aldomora.petagram.restAPI.model.FotoResponse;
 import com.aldomora.petagram.restAPI.model.SearchResponse;
+import com.aldomora.petagram.restAPI.model.StatusResponse;
 import com.aldomora.petagram.restAPI.model.UsuarioResponse;
 
 import retrofit2.Call;
@@ -26,6 +27,13 @@ public interface IEndPointsAPI {
 
     @GET(ConstantesRestAPI.URL_GET_SEARCH)
     Call<SearchResponse> getSearch(@Query("q") String search, @Query("access_token") String token);
+
+    @FormUrlEncoded
+    @POST(ConstantesRestAPI.URL_CHANGE_RELATIONSHIP)
+    Call<StatusResponse> cambiarRelacion(@Path("id") String id,@Query("access_token") String token,@Field("action") String action);
+
+    @GET(ConstantesRestAPI.URL_CHANGE_RELATIONSHIP)
+    Call<StatusResponse> obtenerRelacion(@Path("id") String id, @Query("access_token") String token);
 
     @FormUrlEncoded
     @POST(ConstantesRestAPI.KEY_POST_ID_TOKEN)

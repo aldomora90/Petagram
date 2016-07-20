@@ -65,7 +65,7 @@ public class FotoAdaptador extends RecyclerView.Adapter<FotoAdaptador.FotoViewHo
             @Override
             public void onClick(final View v) {
                 RestAPIadapter restAPIadapter = new RestAPIadapter();
-                IEndPointsAPI endPoints = restAPIadapter.establishConnectionAPIinstagramLike();
+                IEndPointsAPI endPoints = restAPIadapter.establishConnectionAPIinstagram2();
                 Call<FotoResponse> fotoResponseCall = endPoints.giveLikeInstagram(foto.getMediaId() , ConstantesRestAPI.ACCESS_TOKEN);
 
                 fotoResponseCall.enqueue(new Callback<FotoResponse>() {
@@ -79,7 +79,7 @@ public class FotoAdaptador extends RecyclerView.Adapter<FotoAdaptador.FotoViewHo
                     }
                 });
 
-                DBResponse dbResponse = new DBResponse("-KMbKFiME12Twqc4dPrm","Nexus",foto.getMediaId(), userID.username);
+                DBResponse dbResponse = new DBResponse("-KN5Zro7CFDZJcJVVCtD","Nexus",foto.getMediaId(), userID.username);
                 restAPIadapter = new RestAPIadapter();
                 endPoints = restAPIadapter.establishConnectionRestAPI();
                 Call<DBResponse> dbResponseCall = endPoints.registrarLike(dbResponse.getIdMedia(),dbResponse.getId(),dbResponse.getIdUser());

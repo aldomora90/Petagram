@@ -16,4 +16,6 @@ public final class JsonKeys {
     public static final String MEDIA_ID             = "id";
     public static final String MEDIA_LIKES          = "likes";
     public static final String MEDIA_LIKES_COUNT    = "count";
+    public static final String OUTGOING_STATUS      = "outgoing_status";
+    public static final String INCOMING_STATUS      = "incoming_status";
 }

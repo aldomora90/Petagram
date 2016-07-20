@@ -38,6 +38,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +102,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpViewPager(){
+        extras = getIntent().getExtras();
+        String toOpen = "";
+        if(extras!= null) {
+            toOpen = extras.getString("toOpen");
+        }
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),addFragments()));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_feed);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_profile);
+
+        if(toOpen.equals("fragment 1")){
+            tabLayout.getTabAt(1).select();
+        }
     }
 
     public void sendTokenReg(String token, String user){

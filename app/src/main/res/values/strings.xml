@@ -11,6 +11,9 @@
     <string name="desarrollador">©2016 Aldo Mora</string>
     <string name="version">2.0</string>
     <string name="button">Enviar Comentario</string>
+    <string name="tu_perfil">Ver tu perfil</string>
+    <string name="su_perfil">Ver su perfil</string>
+    <string name="seguir">Seguir/Dejar de seguir</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

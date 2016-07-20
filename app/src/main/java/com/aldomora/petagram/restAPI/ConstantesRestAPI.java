@@ -13,6 +13,8 @@ public final class ConstantesRestAPI {
 
     public final static String URL_GET_SEARCH = "users/search?";
 
+    public final static String URL_CHANGE_RELATIONSHIP = "users/{id}/relationship?";
+
     public static final String ROOT_URL_DB = "https://evening-fortress-14083.herokuapp.com/";
     public static final String KEY_POST_ID_TOKEN = "registrar-usuario/";
     public static final String KEY_POST_LIKE = "registrar-like/";

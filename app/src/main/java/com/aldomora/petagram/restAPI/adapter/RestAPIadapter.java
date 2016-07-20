@@ -5,8 +5,10 @@ import com.aldomora.petagram.restAPI.ConstantesRestAPI;
 import com.aldomora.petagram.restAPI.IEndPointsAPI;
 import com.aldomora.petagram.restAPI.deser.FotoDeser;
 import com.aldomora.petagram.restAPI.deser.SearchDeser;
+import com.aldomora.petagram.restAPI.deser.StatusDeser;
 import com.aldomora.petagram.restAPI.model.FotoResponse;
 import com.aldomora.petagram.restAPI.model.SearchResponse;
+import com.aldomora.petagram.restAPI.model.StatusResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -25,7 +27,7 @@ public class RestAPIadapter {
         return retrofit.create(IEndPointsAPI.class);
     }
 
-    public IEndPointsAPI establishConnectionAPIinstagramLike(){
+    public IEndPointsAPI establishConnectionAPIinstagram2(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConstantesRestAPI.ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -51,6 +53,12 @@ public class RestAPIadapter {
     public Gson buildGsonDeserSearch(){
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(SearchResponse.class,new SearchDeser());
+        return gsonBuilder.create();
+    }
+
+    public Gson buildGsonDeserStatus(){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(StatusResponse.class,new StatusDeser());
         return gsonBuilder.create();
     }
 }
